@@ -19,6 +19,7 @@ class CryptoService {
             vs_currencies: "usd",
             include_market_cap: true,
             include_24hr_change: true,
+            x_cg_demo_api_key: process.env.COINGECKO_API_KEY,
           },
         }
       );

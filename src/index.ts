@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import connectDB from "./db/index.db";
 import { app } from "./app";
+import startPriceUpdateJob from "./utils/cryptoPriceCronJob";
 dotenv.config({
   path: "./.env",
 });
@@ -14,3 +15,6 @@ connectDB()
   .catch((err) => {
     console.log("MONGO db connection failed !!! ", err);
   });
+
+// cron job
+startPriceUpdateJob();
