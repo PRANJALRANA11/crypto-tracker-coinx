@@ -67,7 +67,7 @@ npm start
 ## API Endpoints
 ### Get Cryptocurrency Statistics
 ```
-GET /stats?coin=bitcoin
+GET /api/v1/stats?coin=bitcoin
 Query Parameters:
 coin (required) - One of: bitcoin, matic-network, ethereum
 
@@ -81,7 +81,7 @@ jsonCopy{
 
 ### Get Price Standard Deviation
 ```
-GET /deviation?coin=bitcoin
+GET /api/v1/deviation?coin=bitcoin
 Query Parameters:
 
 coin (required) - One of: bitcoin, matic-network, ethereum
@@ -92,7 +92,7 @@ jsonCopy{
 }
 ```
 ## API Documentation
-### The API documentation is available through Swagger UI at ```http://localhost:3000/api-docs``` when running the server. 
+### The API documentation is available through Swagger UI at ```http://localhost:3000/api/v1/api-docs``` when running the server. 
 ```Note``` Choose the server first in the swagger docs
 
 ## Database Schema

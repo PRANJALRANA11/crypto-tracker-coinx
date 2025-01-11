@@ -12,4 +12,8 @@ app.use("/api/v1/", router);
 const swaggerDocument = YAML.load("D:/koinx/src/openapi.yaml");
 app.use("/api/v1/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
+});
+
 export { app };
