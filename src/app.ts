@@ -1,18 +1,14 @@
 import express from "express";
+import startPriceUpdateJob from "./utils/cryptoPriceCronJob";
+import router from "./routes/crypto.routes";
 
 const app = express();
 
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
-
-//routes import
-
-import healthcheckRouter from "./routes/healthcheck.routes.js";
-
-//routes declaration
-app.use("/api/v1/healthcheck", healthcheckRouter);
-
-// http://localhost:8000/api/v1/users/register
+app.use("/api/v1/", router);
+// cron job
+startPriceUpdateJob();
 
 export { app };
