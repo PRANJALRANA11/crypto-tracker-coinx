@@ -10,7 +10,7 @@ info:
 servers:
   - url: http://localhost:8000/api/v1
     description: Development server
-  - url: https://api.cryptotracker.com
+  - url: https://api.cryptotracker.com/api/v1
     description: Production server
 
 tags:

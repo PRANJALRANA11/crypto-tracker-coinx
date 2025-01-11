@@ -9,6 +9,7 @@ import {
 import CryptoPrice from "../models/cryptoPrice.models";
 
 class CryptoService {
+  // fetch the price
   static async fetchCryptoPrices(coins: CoinId[]): Promise<ICryptoPrice[]> {
     try {
       const response = await axios.get<ICoinGeckoResponse>(
@@ -37,6 +38,7 @@ class CryptoService {
     }
   }
 
+  // for cron job updates
   static async updatePrices(): Promise<ICryptoPrice[]> {
     const coins: CoinId[] = ["bitcoin", "matic-network", "ethereum"];
     try {
@@ -52,6 +54,7 @@ class CryptoService {
     }
   }
 
+  // get the latest stats of price
   static async getLatestStats(coinId: CoinId): Promise<IStats> {
     try {
       const stats = await CryptoPrice.findOne({ coinId })

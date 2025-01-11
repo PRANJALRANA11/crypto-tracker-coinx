@@ -35,6 +35,7 @@ const CryptoPriceSchema = new mongoose.Schema<ICryptoPriceDocument>({
 
 CryptoPriceSchema.index({ coinId: 1, timestamp: -1 });
 
+// for calculating standard deviation middleware
 CryptoPriceSchema.statics.calculateStandardDeviation = async function (
   coinId: CoinId,
   limit: number = 100
