@@ -45,13 +45,14 @@ CryptoPriceSchema.statics.calculateStandardDeviation = async function (
     .select("priceUSD")
     .lean();
 
-  const priceValues = prices.map((p) => p.priceUSD);
+  const priceValues = prices.map((p: ICryptoPrice) => p.priceUSD);
 
   if (priceValues.length === 0) return 0;
 
-  const mean = priceValues.reduce((a, b) => a + b) / priceValues.length;
+  const mean =
+    priceValues.reduce((a: number, b: number) => a + b) / priceValues.length;
   const variance =
-    priceValues.reduce((a, b) => a + Math.pow(b - mean, 2), 0) /
+    priceValues.reduce((a: number, b: number) => a + Math.pow(b - mean, 2), 0) /
     priceValues.length;
   return Math.sqrt(variance);
 };
